@@ -22,7 +22,7 @@ return `no spots`
 
 
   return (
-    <li className={dayClass} onClick={()=> props.setDay(props.name)} >
+    <li className={dayClass} onClick={()=> props.setDay(props.name)} selected={props.selected} >
       <h2 >{props.name}</h2> 
       <span >{formatSpots(props.spots)} remaining </span> 
     </li>

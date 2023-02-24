@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export default function useVisualMode(initial) {
   const [history, setHistory] = useState([initial]);
@@ -16,6 +16,9 @@ export default function useVisualMode(initial) {
       return newHistory;
     });
 
+    //setMode(newMode);
+    // setHistory(prev => [...prev, newMode])
+
     // if (replace) {
     //   setHistory((prev) => [...prev.slice(0, history.length - 1), newMode]);
     // } else {
@@ -30,12 +33,7 @@ export default function useVisualMode(initial) {
     if (history.length < 2) {
       return;
     }
-    // // remove the last item from history
-    // const newHistory = [...history];
-    // newHistory.pop();
-    // setHistory(newHistory);
-
-
+  
     setHistory((prev) => {
       const newHistory = [...prev];
       newHistory.pop();
@@ -44,8 +42,13 @@ export default function useVisualMode(initial) {
     });
 
 
+  // // remove the last item from history
+    // const newHistory = [...history];
+    // newHistory.pop();
+    // setHistory(newHistory);
 
     // setHistory((prev) => [...prev.slice(0, prev.length - 1)]);
+    // set Mode(history[history.length-2]);
   };
 
   // calculate the last item in the array 

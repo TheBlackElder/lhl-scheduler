@@ -39,6 +39,6 @@ return interviewObj
   });
   return interviewers;
 }
-
+ 
 
 export {getAppointmentsForDay, getInterview, getInterviewersForDay}

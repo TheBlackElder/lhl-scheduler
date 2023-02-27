@@ -17,6 +17,11 @@ const cancel = () => {
  props.onCancel()
 }
 
+// const save = () => {
+//   props.onSave()
+//   props.bookInterview(id, interview)
+// }
+
   return (
     <main className="appointment__card appointment__card--create">
     <section className="appointment__card-left">

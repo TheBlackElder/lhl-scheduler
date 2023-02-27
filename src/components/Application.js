@@ -59,7 +59,7 @@ export default function Application(props) {
         setState({
           ...state,
           appointments,
-        });
+        })
       });
   };
 

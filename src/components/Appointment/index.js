@@ -92,9 +92,9 @@ export default function Appointment(props) {
       {mode === ERROR_DELETE && (<Error
       onClose={back} /> 
     )}
-     {/* {mode === ERROR_DELETE && (<Error
+     {mode === ERROR_SAVE && (<Error
       onClose={back} /> 
-    )} */}
+    )}
    
     </article>
   );

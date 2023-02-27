@@ -1,4 +1,7 @@
  function getAppointmentsForDay(state, day) {
+  if(!state.days) {
+    return [];
+  }  
   const foundDay = state.days.find((dy) => dy.name === day);
   if (!foundDay) {
     return [];
@@ -27,10 +30,13 @@ return interviewObj
 }
 
  function getInterviewersForDay(state, day) {
-  const foundDay = state.days.find((dy) => dy.name === day);
-  if (!foundDay) {
+  if(!state.days) {
     return [];
-  }
+  }  
+   const foundDay = state.days.find((dy) => dy.name === day);
+   if (!foundDay) {
+     return [];
+   }
   const appointmentsIds = foundDay.interviewers;
   const interviewers = appointmentsIds.map((id) => {
     return state.interviewers[id];

@@ -21,7 +21,8 @@ export default function Application(props) {
   });
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
-
+  const interviewers = getInterviewersForDay(state, state.day);
+  
   const setDay = (day) => setState({ ...state, day });
 
   useEffect(() => {
@@ -61,6 +62,23 @@ export default function Application(props) {
       });
   };
 
+  function cancelInterview(id) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: null
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+
+    return axios.delete(`/api/appointments/${id}`)
+      .then((response) => {
+        setState({...state, appointments});
+      });
+
+  }
+
   return (
     <main className="layout">
       <section className="sidebar">
@@ -82,7 +100,6 @@ export default function Application(props) {
       <section className="schedule">
         {dailyAppointments.map((appointment) => {
           const interview = getInterview(state, appointment.interview);
-          const interviewers = getInterviewersForDay(state, state.day);
 
           return (
             <Appointment
@@ -91,6 +108,7 @@ export default function Application(props) {
               interview={interview}
               interviewers={interviewers}
               bookInterview={bookInterview}
+              cancelInterview={cancelInterview}
             />
           );
         })}
@@ -99,25 +117,3 @@ export default function Application(props) {
   );
 }
 
-// componentDidMount() {
-//   // Simple PUT request with a JSON body using axios
-//   const article = { title: 'React PUT Request Example' };
-//   axios.put('https://reqres.in/api/articles/1', article)
-//       .then(response => this.setState({ updatedAt: response.data.updatedAt }));
-// }
-
-// componentDidMount() {
-//   // Simple PUT request with a JSON body using axios
-//   const article = { title: 'React PUT Request Example' };
-//   axios.put('https://reqres.in/api/articles/1', article)
-//       .then(response => this.setState({ updatedAt: response.data.updatedAt }));
-// }
-
-//       useEffect(() => {
-//         // PUT request using axios inside useEffect React hook
-//         const article = { title: 'React Hooks PUT Request Example' };
-//         axios.put('https://reqres.in/api/articles/1', article)
-//             .then(response => setUpdatedAt(response.data.updatedAt));
-
-//     // empty dependency array means this effect will only run once (like componentDidMount in classes)
-//     }, []);

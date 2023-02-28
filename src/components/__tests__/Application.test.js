@@ -22,7 +22,8 @@ describe("Application", () => {
   
     await waitForElement(() => getByText(container, "Archie Cohen"));
     
-    const appointment = getAllByTestId(container, "appointment")[0];
+    const appointments = getAllByTestId(container, "appointment");
+    const appointment = appointments[0];
     
     
     fireEvent.click(getByAltText(appointment, "Add"));
@@ -32,10 +33,10 @@ describe("Application", () => {
     });
     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
     
-
-    await expect(() => getByText(appointment, "Saving").toBeInTheDocument());
-
     fireEvent.click(getByText(appointment, "Save"));
+
+    expect(getByText(appointment, "Saving")).toBeInTheDocument();
+
 
     await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
 
@@ -44,7 +45,6 @@ describe("Application", () => {
       queryByText(day, "Monday")
     );
     expect(getByText(day, "no spots remaining")).toBeInTheDocument();
-
    
     
   });

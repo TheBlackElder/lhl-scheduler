@@ -29,6 +29,26 @@ export default function useApplicationData(props) {
   }, []);
 
 
+
+
+
+
+const updateSpots = (day, days, appointments) => {
+  const currentDay = days.find((thisDay) => thisDay.name === day);
+  const currentAppointments = currentDay.appointments;
+  let spots = 0;
+  for (const currentApp of currentAppointments) {
+    if (!appointments[currentApp].interview) {
+      spots++;
+    }
+  }
+  currentDay.spots = spots;
+};
+
+
+
+
+
   const bookInterview = (id, interview) => {
     // console.log(id, interview);
     const appointment = {
@@ -44,6 +64,7 @@ export default function useApplicationData(props) {
     return axios
       .put(`/api/appointments/${id}`, { interview })
       .then((response) => {
+        updateSpots(state.day, state.days, appointments);
         setState({
           ...state,
           appointments,
@@ -63,7 +84,11 @@ export default function useApplicationData(props) {
   
     return axios.delete(`/api/appointments/${id}`)
       .then((response) => {
-        setState({...state, appointments});
+        state.appointments[id].interview = null;
+        updateSpots(state.day, state.days, state.appointments);
+        setState({ ...state,
+           appointments: state.appointments, 
+           days: state.days });
 
       });
 

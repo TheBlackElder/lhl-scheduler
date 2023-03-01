@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 import "components/Application.scss";
 import DayList from "./DayList";
 import "components/Appointment";
@@ -14,23 +12,16 @@ import {
   getInterviewersForDay,
 } from "../helpers/selectors";
 
-
 export default function Application(props) {
-  const {
-    state,
-    setDay,
-    bookInterview,
-    cancelInterview
-  } = useApplicationData();
+  const { state, setDay, bookInterview, cancelInterview } =
+    useApplicationData();
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const interviewers = getInterviewersForDay(state, state.day);
-  
-  
 
   return (
     <main className="layout">
-      <section className="sidebar" >
+      <section className="sidebar">
         <img
           className="sidebar--centered"
           src="images/logo.png"
@@ -46,11 +37,11 @@ export default function Application(props) {
           alt="Lighthouse Labs"
         />
       </section>
-      <section className="schedule" data-testid="appointment" >
+      <section className="schedule" data-testid="appointment">
         {dailyAppointments.map((appointment) => {
-          console.log("test", appointment);
+         
           const interview = getInterview(state, appointment.interview);
-      
+
           return (
             <Appointment
               key={appointment.id}
@@ -68,4 +59,3 @@ export default function Application(props) {
     </main>
   );
 }
-

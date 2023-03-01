@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-import { render, cleanup, waitForElement, fireEvent, prettyDOM, getAllByTestId, getByText, getByAltText, getByPlaceholderText, queryByText, queryByAltText } from "@testing-library/react";
+import { render, cleanup, waitForElement, fireEvent, getAllByTestId, getByText, getByAltText, getByPlaceholderText, queryByText, queryByAltText, getAllByAltText } from "@testing-library/react";
 
 import Application from "components/Application";
 
@@ -25,9 +25,9 @@ describe("Application", () => {
     
     const appointments = getAllByTestId(container, "appointment");
     const appointment = appointments[0];
+   
     
-    
-    fireEvent.click(getByAltText(appointment, "Add"));
+    fireEvent.click(getAllByAltText(appointment, "Add")[0]);
     
     fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
       target: { value: "Lydia Miller-Jones" }
@@ -171,7 +171,7 @@ describe("Application", () => {
   expect(getByText(appointment, "Deleting")).toBeInTheDocument();
 
   // 7. Wait until the element with the "Add" button is displayed.
-  await waitForElement(() => getByAltText(appointment, "Add"));
+  await waitForElement(() => getAllByAltText(appointment, "Add")[0]);
 
   // 8. Check that the DayListItem with the text "Monday" also has the text "2 spots remaining".
   const day = getAllByTestId(container, "day").find(day =>

@@ -7,15 +7,8 @@ import Appointment from "components/Appointment";
 afterEach(cleanup);
 
 describe("Appointment", () => {
-  xit("renders without crashing", () => {
+  it("renders without crashing", () => {
     render(<Appointment />);
   });
 
-  it("does something it is supposed to do", () => {
-    // ...
-  });
-
-  it("does something else it is supposed to do", () => {
-    // ...
-  });
 });

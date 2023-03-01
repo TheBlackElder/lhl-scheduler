@@ -8,7 +8,7 @@ Scheduler is simple, single page app that uses REACT, JSX and CSS.
 + The student can edit their appointment and delete it, if need be. 
 
 
-![screen-gif](./Scheduler.gif)
+![screen-gif](https://github.com/TheBlackElder/lhl-scheduler/blob/master/docs/Scheduler.gif?raw=true)
 
 
 
@@ -36,21 +36,11 @@ npm run storybook
 
 ## Dependencies
 
-- Express
-- Node 5.10.x or above
-- Nodemon
-- Chance
-- Body-parser
-- Md5
-- Timeago
-
-
-
-
-
-![Screenshot of main page ](https://github.com/TheBlackElder/tweeter/blob/master/docs/main-tweeter.png?raw=true)
-![Screenshot of mobile view](https://github.com/TheBlackElder/tweeter/blob/master/docs/mobile-scroll.png?raw=true)
-![Screenshot of tweet error](https://github.com/TheBlackElder/tweeter/blob/master/docs/tweet-error.png?raw=true)
-
-
+- react
+- axios
+- @testing-library/react-hooks
+- react-test-renderer
+- classnames
+- cypress
+- storybook
 

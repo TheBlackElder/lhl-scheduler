@@ -36,11 +36,17 @@ npm run storybook
 
 ## Dependencies
 
-- react
+- React
 - axios
-- @testing-library/react-hooks
-- react-test-renderer
 - classnames
-- cypress
+- normalize
+
+
+## Development dependencies
+- Babel
 - storybook
+- testing-library/react-hooks
+- react-test-renderer
+- sass
+- prop-types
 

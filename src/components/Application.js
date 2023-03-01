@@ -30,7 +30,7 @@ export default function Application(props) {
 
   return (
     <main className="layout">
-      <section className="sidebar">
+      <section className="sidebar" >
         <img
           className="sidebar--centered"
           src="images/logo.png"
@@ -46,7 +46,7 @@ export default function Application(props) {
           alt="Lighthouse Labs"
         />
       </section>
-      <section className="schedule">
+      <section className="schedule" data-testid="appointment" >
         {dailyAppointments.map((appointment) => {
           const interview = getInterview(state, appointment.interview);
       

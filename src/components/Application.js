@@ -48,6 +48,7 @@ export default function Application(props) {
       </section>
       <section className="schedule" data-testid="appointment" >
         {dailyAppointments.map((appointment) => {
+          console.log("test", appointment);
           const interview = getInterview(state, appointment.interview);
       
           return (
@@ -58,9 +59,11 @@ export default function Application(props) {
               interviewers={interviewers}
               bookInterview={bookInterview}
               cancelInterview={cancelInterview}
+              time={appointment.time}
             />
           );
         })}
+        <Appointment />
       </section>
     </main>
   );

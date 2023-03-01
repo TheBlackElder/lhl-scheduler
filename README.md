@@ -1,11 +1,11 @@
 # Interview Scheduler
 
-Scheduler is simple, single page app that uses REACT, JSX and CSS. 
+The Interview Scheduler is a single page app built with React.
 
 ## Features
 
-+ This responsive web application allows students to book a selection of interviewers on the day of the week of their choice, granted that there are spots remaining to select.
-+ The student can edit their appointment and delete it, if need be. 
++ This responsive web application allows students to book an interview with a selection of interviewers on the day of the week of their choice, granted that there are spots remaining to select.
++ The student can edit their appointment and delete it or cancel before saving, if need be. 
 
 
 ![screen-gif](https://github.com/TheBlackElder/lhl-scheduler/blob/master/docs/Scheduler.gif?raw=true)
